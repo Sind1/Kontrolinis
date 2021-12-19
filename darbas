@@ -1,0 +1,134 @@
+// C++ program for the above approach
+#include <iostream>
+#include <string>
+#include <utility>
+using namespace std;
+
+basic_string<char, char_traits<char>, allocator<char>> Guess;
+
+class Question {
+private:
+    string Question_Text;
+    string Correct_Answer;
+
+public:
+    void setValues(string, string);
+
+    void askQuestion();
+
+};
+
+class Spejimas {
+private:
+    string Text;
+    string Teisingas;
+    string New;
+
+public:
+    void setValues1(string, string);
+
+    void askQuestion1();
+};
+
+int main() {
+    string Text;
+    string Teisingas;
+    string Neteisingas;
+
+
+    cout << "Gyvunas"
+         << endl;
+    cout << "Paspauskite Enter, kad pradetumete klausimyna " << endl;
+
+    cin.get();
+
+    Question q1;
+    Question q2;
+    Question q3;
+    Question q4;
+    Question q5;
+    Question q6;
+    Question q7;
+
+
+    string taip;
+
+    q1.setValues("Ar gyvunas turi uodega? : ",
+                 "taip");
+    q2.setValues("Ar tai paukstis? : ",
+                 "taip");
+    q3.setValues("Ar turi kojas? : ",
+                 "taip");
+    q4.setValues("Ar turi kaili? : ",
+                 "taip");
+    q5.setValues("Ar gali greitai begti? : ",
+                 "taip");
+    q6.setValues("Ar gali plaukti? : ",
+                 "taip");
+    q7.setValues("Ar gyvunas turi uodega? : ",
+                 "taip");
+
+    Spejimas a1;
+    Spejimas a2;
+    Spejimas a3;
+
+    a1.setValues1("Ar tai gyvate", "taip");
+    a2.setValues1("Ar tai suo?", "taip");
+    a3.setValues1("Ar tai zuvis?", "taip");
+
+        q1.askQuestion();
+        q2.askQuestion();
+        a1.askQuestion1();
+        q3.askQuestion();
+        q4.askQuestion();
+        a2.askQuestion1();
+        q5.askQuestion();
+        q6.askQuestion();
+        q7.askQuestion();
+}
+
+void Question::setValues(string q, string ca)
+{
+    Question_Text = std::move(q);
+    Correct_Answer = std::move(ca);
+}
+
+void Spejimas::setValues1(string kl, string ta) {
+    Text = std::move(kl);
+    Teisingas = std::move(ta);
+}
+
+void Question::askQuestion()
+{
+    cout << endl;
+
+    cout << Question_Text << endl;
+
+    cout << endl;
+
+    cout << "taip/ne?"
+         << endl;
+    cin >> Guess;
+
+    if (Guess == Correct_Answer) {
+        cout << ":) Kitas klausimas" << endl;
+
+    }
+    else {
+        cout << ":( Kitas klausimas" << endl;
+        cout << endl;
+    }
+}
+void Spejimas::askQuestion1() {
+    cout << endl;
+    cout << Text << endl;
+    cout << endl;
+    cout << "taip/ne" << endl;
+    cin >> Guess;
+    if (Guess == Teisingas) {
+        cout << "Valio!" << endl;
+    } else {
+        cout << "Irasykite nauja gyvuna" << endl;
+        cin >> New;
+    }
+}
